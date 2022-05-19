@@ -3,7 +3,7 @@
     <fullName>Resource_Project__c</fullName>
     <externalId>false</externalId>
     <label>Resource Project</label>
-    <referenceTo>Resouce_Project__c</referenceTo>
+    <referenceTo>Resource_Project__c</referenceTo>
     <relationshipLabel>Tasks</relationshipLabel>
     <relationshipName>Tasks</relationshipName>
     <relationshipOrder>0</relationshipOrder>

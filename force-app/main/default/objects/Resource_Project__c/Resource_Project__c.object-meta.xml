@@ -154,10 +154,10 @@
     <enableStreamingApi>false</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <gender>Feminine</gender>
-    <label>Resouce / Project</label>
+    <label>Resource / Project</label>
     <nameField>
         <displayFormat>RP-{0000}</displayFormat>
-        <label>Resouce / Project Name</label>
+        <label>Resource / Project Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Resources Projects</pluralLabel>

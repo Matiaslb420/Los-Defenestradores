@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>Project</label>
     <referenceTo>Project__c</referenceTo>
-    <relationshipLabel>Resources Projects</relationshipLabel>
     <relationshipName>Resources_Projects</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>

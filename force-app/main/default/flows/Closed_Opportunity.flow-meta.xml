@@ -151,8 +151,8 @@
             <label>isPM</label>
         </rules>
     </decisions>
-    <interviewLabel>Create Project from Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Create Project from Opportunity</label>
+    <interviewLabel>Closed Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Closed Opportunity</label>
     <loops>
         <name>Hours_per_Role_Assignment</name>
         <label>Hours per Role Assignment</label>

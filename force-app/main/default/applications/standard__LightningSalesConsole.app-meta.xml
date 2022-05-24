@@ -19,21 +19,9 @@
     <tabs>standard-Feed</tabs>
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningSalesConsole_UtilityBar</utilityBar>
     <workspaceConfig>
-        <mappings>
-            <tab>Opportunity_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Resource_Project__c</tab>
-        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

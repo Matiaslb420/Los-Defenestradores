@@ -8,7 +8,4 @@
     <tabs>standard-Workspace</tabs>
     <tabs>standard-ContentSearch</tabs>
     <tabs>standard-ContentSubscriptions</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
 </CustomApplication>

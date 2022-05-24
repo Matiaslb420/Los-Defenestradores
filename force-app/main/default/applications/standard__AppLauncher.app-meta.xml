@@ -5,7 +5,4 @@
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <tabs>standard-AppLauncher</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
 </CustomApplication>

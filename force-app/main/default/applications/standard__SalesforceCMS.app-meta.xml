@@ -9,20 +9,8 @@
     <tabs>standard-CmsChannel</tabs>
     <tabs>standard-CmsWorkspaces</tabs>
     <tabs>standard-CmsExperiences</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
     <uiType>Lightning</uiType>
     <workspaceConfig>
-        <mappings>
-            <tab>Opportunity_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Resource_Project__c</tab>
-        </mappings>
         <mappings>
             <tab>standard-CmsAuthorHome</tab>
         </mappings>

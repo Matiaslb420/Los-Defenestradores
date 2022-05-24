@@ -16,21 +16,9 @@
     <tabs>standard-Incident</tabs>
     <tabs>standard-Problem</tabs>
     <tabs>standard-ChangeRequest</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
-        <mappings>
-            <tab>Opportunity_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Resource_Project__c</tab>
-        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

@@ -338,14 +338,6 @@
         <scale>2</scale>
     </variables>
     <variables>
-        <name>OLI_SObjects</name>
-        <dataType>SObject</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <objectType>Opportunity_Line_Item__c</objectType>
-    </variables>
-    <variables>
         <name>PM_Hours</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>

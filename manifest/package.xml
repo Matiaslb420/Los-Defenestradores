@@ -59,6 +59,9 @@
 		<members>Opportunity_Line_Item__c.Hours_Quantity__c</members>
 		<members>Opportunity_Line_Item__c.Opportunity__c</members>
 		<members>Opportunity_Line_Item__c.Role__c</members>
+		<members>Project_Line_Item__c.Project__c</members>
+		<members>Project_Line_Item__c.Role__c</members>
+		<members>Project_Line_Item__c.Sold_Role_Hours__c</members>
 		<members>Project__c.Amount__c</members>
 		<members>Project__c.Arch_Hours__c</members>
 		<members>Project__c.Client__c</members>
@@ -66,6 +69,7 @@
 		<members>Project__c.Dev_Hours__c</members>
 		<members>Project__c.End_Date__c</members>
 		<members>Project__c.Estimated_Cost__c</members>
+		<members>Project__c.Number__c</members>
 		<members>Project__c.Opportunity__c</members>
 		<members>Project__c.PM_Hours__c</members>
 		<members>Project__c.Project_Manager__c</members>
@@ -96,11 +100,15 @@
 		<members>Days_Off__c</members>
 		<members>Opportunity</members>
 		<members>Opportunity_Line_Item__c</members>
+		<members>Project_Line_Item__c</members>
 		<members>Project__c</members>
 		<members>Resource_Project__c</members>
 		<members>Task__c</members>
-		<members>User</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomObjectTranslation</name>
 	</types>
 	<types>
 		<members>*</members>

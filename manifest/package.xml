@@ -10,32 +10,10 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>AppMenu</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>ApprovalProcess</name>
 	</types>
 	<types>
-		<members>standard__AllTabSet</members>
-		<members>standard__AppLauncher</members>
-		<members>standard__Chatter</members>
-		<members>standard__Community</members>
-		<members>standard__Content</members>
-		<members>standard__Insights</members>
-		<members>standard__LightningBolt</members>
-		<members>standard__LightningInstrumentation</members>
-		<members>standard__LightningSalesConsole</members>
-		<members>standard__LightningScheduler</members>
-		<members>standard__LightningService</members>
-		<members>standard__Marketing</members>
-		<members>standard__Platform</members>
-		<members>standard__QueueManagement</members>
-		<members>standard__Sales</members>
-		<members>standard__SalesforceCMS</members>
-		<members>standard__Service</members>
-		<members>standard__ServiceConsole</members>
-		<members>standard__Sites</members>
+		<members>*</members>
 		<name>CustomApplication</name>
 	</types>
 	<types>

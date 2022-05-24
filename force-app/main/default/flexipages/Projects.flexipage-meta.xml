@@ -31,48 +31,6 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>colorPalette</name>
-                    <value>default</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>details</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>detailsLabels</name>
-                    <value>[]</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>fill</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>handler</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>legendPosition</name>
-                    <value>top</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>soql</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>styleCss</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Chart</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>type</name>
-                    <value>line</value>
-                </componentInstanceProperties>
-                <componentName>lwcc:chartBuilder</componentName>
-                <identifier>lwcc_chartBuilder1</identifier>
-            </componentInstance>
-        </itemInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>

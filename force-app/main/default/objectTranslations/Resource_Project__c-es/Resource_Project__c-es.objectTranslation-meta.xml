@@ -16,4 +16,11 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Resource / Project Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

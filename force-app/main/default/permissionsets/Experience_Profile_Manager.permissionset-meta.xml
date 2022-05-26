@@ -382,22 +382,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.Arch_Hours__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Project__c.Client__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Consult_Hours__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Dev_Hours__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -417,17 +402,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.PM_Hours__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Project__c.Project_Manager__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Sold_Hours__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -458,11 +433,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Resource_Project__c.Resource__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Resource_Project__c.Role__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

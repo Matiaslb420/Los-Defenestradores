@@ -80,8 +80,4 @@
         <name>standard__LightningBolt</name>
         <type>CustomApplication</type>
     </appMenuItems>
-    <appMenuItems>
-        <name>Cloud_Consulting</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
 </AppMenu>

@@ -16,15 +16,4 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Project Layout</layout>
-        <sections>
-            <label></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
-    <recordTypes>
-        <label></label>
-        <name>test</name>
-    </recordTypes>
 </CustomObjectTranslation>

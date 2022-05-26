@@ -109,9 +109,6 @@
     </layoutSections>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>Task.UpdatePriority</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
@@ -140,6 +137,9 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>Task.UpdateStatus</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>Task.UpdatePriority</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>

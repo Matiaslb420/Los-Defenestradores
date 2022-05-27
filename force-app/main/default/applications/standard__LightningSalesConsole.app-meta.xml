@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Project_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Project_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Project__c</pageOrSobjectType>
-    </actionOverrides>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -37,26 +19,11 @@
     <tabs>standard-Feed</tabs>
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
-    <tabs>Project_Line_Item__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningSalesConsole_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
-            <tab>Opportunity_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Resource_Project__c</tab>
-        </mappings>
-        <mappings>
+
             <tab>standard-Account</tab>
         </mappings>
         <mappings>

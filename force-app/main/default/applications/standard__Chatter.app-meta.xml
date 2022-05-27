@@ -9,8 +9,5 @@
     <tabs>standard-OtherUserProfile</tabs>
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
-    <tabs>Project_Line_Item__c</tabs>
+
 </CustomApplication>

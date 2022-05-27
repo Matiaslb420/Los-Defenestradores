@@ -377,26 +377,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project_Line_Item__c.Role__c</field>
+
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project_Line_Item__c.Sold_Role_Hours__c</field>
+
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.Amount__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Client__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+
         <field>Project__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -448,11 +439,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Resource_Project__c.Resource__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Resource_Project__c.Role__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

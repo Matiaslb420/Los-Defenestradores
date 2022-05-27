@@ -179,8 +179,7 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
-    <workspaceConfig>
-        <mappings>
+
             <tab>standard-Account</tab>
         </mappings>
         <mappings>

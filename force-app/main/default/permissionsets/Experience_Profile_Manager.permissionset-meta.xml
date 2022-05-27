@@ -377,16 +377,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.Amount__c</field>
+
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.Client__c</field>
+
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
         <field>Project__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -423,6 +424,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Resource_Project__c.Estimated_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Resource_Project__c.Project_Line_Item__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

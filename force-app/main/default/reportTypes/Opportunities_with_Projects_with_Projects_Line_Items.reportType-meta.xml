@@ -3,16 +3,16 @@
     <baseObject>Opportunity</baseObject>
     <category>opportunities</category>
     <deployed>true</deployed>
-    <description>Opportunities with Projects with Resources Projects</description>
+    <description>Opportunities with Projects with Projects Line Items</description>
     <join>
         <join>
             <outerJoin>false</outerJoin>
-            <relationship>Resources_Projects__r</relationship>
+            <relationship>Projects_Line_Items__r</relationship>
         </join>
         <outerJoin>false</outerJoin>
         <relationship>Projects__r</relationship>
     </join>
-    <label>Opportunities with Projects with Resources Projects</label>
+    <label>Opportunities with Projects with Projects Line Items</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -171,11 +171,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contract</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>DeliveryInstallationStatus__c</field>
             <table>Opportunity</table>
         </columns>
@@ -269,11 +264,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Squad_Lead__c</field>
-            <table>Opportunity.Projects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Start_Date__c</field>
             <table>Opportunity.Projects__r</table>
         </columns>
@@ -293,63 +283,48 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Estimated_Amount__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Required_Hours__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Resource__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Worked_Hours__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <field>Project__c</field>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Role__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Project_Line_Item__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+            <field>Sold_Role_Hours__c</field>
+            <table>Opportunity.Projects__r.Projects_Line_Items__r</table>
         </columns>
-        <masterLabel>Resources Projects</masterLabel>
+        <masterLabel>Projects Line Items</masterLabel>
     </sections>
 </ReportType>

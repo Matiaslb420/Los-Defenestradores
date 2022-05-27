@@ -179,24 +179,7 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
-    <tabs>Project__c</tabs>
-    <tabs>Opportunity_Line_Item__c</tabs>
-    <tabs>Resource_Project__c</tabs>
-    <tabs>Project_Line_Item__c</tabs>
-    <workspaceConfig>
-        <mappings>
-            <tab>Opportunity_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project_Line_Item__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Project__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Resource_Project__c</tab>
-        </mappings>
-        <mappings>
+
             <tab>standard-Account</tab>
         </mappings>
         <mappings>

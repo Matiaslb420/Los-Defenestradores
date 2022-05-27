@@ -66,6 +66,11 @@
             <field>Role__c</field>
             <table>Resource_Project__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Project_Line_Item__c</field>
+            <table>Resource_Project__c</table>
+        </columns>
         <masterLabel>Resources Projects</masterLabel>
     </sections>
 </ReportType>

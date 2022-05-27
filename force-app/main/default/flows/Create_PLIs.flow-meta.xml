@@ -1,8 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Assign_Variables</name>
+        <label>Assign Variables</label>
+        <locationX>264</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>Arch_Hours</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Assign_Hours_per_Role.Hours_Quantity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Variables_0</name>
+        <label>Assign Variables</label>
+        <locationX>528</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>Consult_Hours</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Assign_Hours_per_Role.Hours_Quantity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Variables_0_0</name>
+        <label>Assign Variables</label>
+        <locationX>792</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>Dev_Hours</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Assign_Hours_per_Role.Hours_Quantity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Variables_0_0_0</name>
+        <label>Assign Variables</label>
+        <locationX>1056</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>PM_Hours</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Assign_Hours_per_Role.Hours_Quantity__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Hours_Assignment</name>
+        <label>Hours Assignment</label>
+        <locationX>792</locationX>
+        <locationY>575</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Arch_Assignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Assign_Hours_per_Role.Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Arquitecto</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Variables</targetReference>
+            </connector>
+            <label>Arch Assignment</label>
+        </rules>
+        <rules>
+            <name>Consult_Assignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Assign_Hours_per_Role.Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Consultor</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Variables_0</targetReference>
+            </connector>
+            <label>Consult Assignment</label>
+        </rules>
+        <rules>
+            <name>Dev_Assignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Assign_Hours_per_Role.Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Desarrollador</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Variables_0_0</targetReference>
+            </connector>
+            <label>Dev Assignment</label>
+        </rules>
+        <rules>
+            <name>PM_Assignment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Assign_Hours_per_Role.Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Project Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Variables_0_0_0</targetReference>
+            </connector>
+            <label>PM Assignment</label>
+        </rules>
+    </decisions>
     <interviewLabel>Create PLIs {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create PLIs</label>
+    <loops>
+        <name>Assign_Hours_per_Role</name>
+        <label>Assign Hours per Role</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <collectionReference>Get_OLIs</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Hours_Assignment</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_PLIs</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -26,7 +174,7 @@
         <name>Create_PLIs</name>
         <label>Create PLIs</label>
         <locationX>176</locationX>
-        <locationY>335</locationY>
+        <locationY>1007</locationY>
         <connector>
             <targetReference>Create_PLIs_0</targetReference>
         </connector>
@@ -42,6 +190,12 @@
                 <stringValue>Arquitecto</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Sold_Role_Hours__c</field>
+            <value>
+                <elementReference>Arch_Hours</elementReference>
+            </value>
+        </inputAssignments>
         <object>Project_Line_Item__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
@@ -49,7 +203,7 @@
         <name>Create_PLIs_0</name>
         <label>Create PLIs</label>
         <locationX>176</locationX>
-        <locationY>455</locationY>
+        <locationY>1127</locationY>
         <connector>
             <targetReference>Create_PLIs_0_0</targetReference>
         </connector>
@@ -65,6 +219,12 @@
                 <stringValue>Consultor</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Sold_Role_Hours__c</field>
+            <value>
+                <elementReference>Consult_Hours</elementReference>
+            </value>
+        </inputAssignments>
         <object>Project_Line_Item__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
@@ -72,7 +232,7 @@
         <name>Create_PLIs_0_0</name>
         <label>Create PLIs</label>
         <locationX>176</locationX>
-        <locationY>575</locationY>
+        <locationY>1247</locationY>
         <connector>
             <targetReference>Create_PLIs_0_0_0</targetReference>
         </connector>
@@ -88,6 +248,12 @@
                 <stringValue>Desarrollador</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Sold_Role_Hours__c</field>
+            <value>
+                <elementReference>Dev_Hours</elementReference>
+            </value>
+        </inputAssignments>
         <object>Project_Line_Item__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
@@ -95,7 +261,7 @@
         <name>Create_PLIs_0_0_0</name>
         <label>Create PLIs</label>
         <locationX>176</locationX>
-        <locationY>695</locationY>
+        <locationY>1367</locationY>
         <inputAssignments>
             <field>Project__c</field>
             <value>
@@ -108,18 +274,89 @@
                 <stringValue>Project Manager</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Sold_Role_Hours__c</field>
+            <value>
+                <elementReference>PM_Hours</elementReference>
+            </value>
+        </inputAssignments>
         <object>Project_Line_Item__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>Get_OLIs</name>
+        <label>Get OLIs</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Hours_per_Role</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Opportunity_Line_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Create_PLIs</targetReference>
+            <targetReference>Get_OLIs</targetReference>
         </connector>
         <object>Project__c</object>
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>Arch_Hours</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Consult_Hours</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Dev_Hours</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>PM_Hours</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
 </Flow>

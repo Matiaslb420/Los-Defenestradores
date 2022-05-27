@@ -18,6 +18,7 @@
 		<members>Opportunity</members>
 		<members>Opportunity_Line_Item__c</members>
 		<members>Project__c</members>
+		<members>Project_Line_Item__c</members>
 		<members>Resource_Project__c</members>
 		<members>Task__c</members>
 		<members>User</members>
@@ -60,7 +61,7 @@
 		<name>Profile</name>
 	</types>
 	<types>
-		<members>unfiled$public/flow_screen_prebuilt_report</members>
+		<members>*</members>
 		<name>Report</name>
 	</types>
 	<types>

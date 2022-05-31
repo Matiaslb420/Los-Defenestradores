@@ -3,7 +3,7 @@
     <fullName>State__c</fullName>
     <externalId>false</externalId>
     <label>State</label>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>

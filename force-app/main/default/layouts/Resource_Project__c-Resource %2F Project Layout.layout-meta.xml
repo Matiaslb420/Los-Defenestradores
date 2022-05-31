@@ -170,9 +170,6 @@
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>Resource_Project__c.NewLinkedTask</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>

@@ -5,7 +5,7 @@ public with sharing class TestTaskDataFactory {
         insert sampleOp;
         List<Project__c> projects = new List<Project__c>();
         for(Integer p = 0; p < numOfProjects; p++){
-            Project__c pro = new Project__c(Name = 'Project' + p, Opportunity__c = sampleOp.Id);
+            Project__c pro = new Project__c(Name = 'Project' + p, Opportunity__c = sampleOp.Id, status__c = 'In Progress');
             projects.add(pro);
         }
         insert projects;
@@ -43,6 +43,7 @@ public with sharing class TestTaskDataFactory {
         List<Resource_Project__c> resPros = new List<Resource_Project__c>();
         Integer ResourceIndex = 0;
         for(Project__c pro : projects){
+            pro.Squad_Lead__c = resources.get(ResourceIndex).Id;
             for(Integer r = 0; r < numOfResources; r++){
                 User res = resources.get(ResourceIndex);
                 ResourceIndex++;
@@ -55,24 +56,52 @@ public with sharing class TestTaskDataFactory {
                 resPros.add(newResPro);
             }
         }
+        update projects;
         insert ResPros;
         return ResPros;
     }
     public static List<Task__c> createTasks(List<Resource_Project__c> resPros, Integer numOfTasks){
-        List<Task__c> tasks = new List<Task__c>();
+        Map<Id, List<Resource_Project__c>> resProsByProjectId = new Map<Id, List<Resource_Project__c>>();
+        for (Resource_Project__c RP : resPros){
+            if (resProsByProjectId.containsKey(RP.Project__c)){
+                resProsByProjectId.get(RP.Project__c).add(RP);
+            }
+            else{
+                resProsByProjectId.put(RP.Project__c, new List<Resource_Project__c>{RP});
+            }
+        }
+        Map<Id,Project__c> projectsById = new Map<Id,Project__c>([
+            SELECT Id, Squad_Lead__c 
+            FROM Project__c 
+            WHERE Id in: resProsByProjectId.keySet()
+        ]);
+        Set<Id> squadLeadsIds = new Set<Id>();
+        for(Project__c pro : projectsById.values()){
+            squadLeadsIds.add(pro.Squad_Lead__c);
+        }
+        Map<Id, User> squadLeads = new Map<Id, User>([SELECT Id FROM USER WHERE Id in: squadLeadsIds]);
+        List<Task__c> allTasks = new List<Task__c>();
         for (Resource_Project__c resPro : resPros){
+            List<Task__c> tasks = new List<Task__c>();
             for(Integer t = 0; t < numOfTasks; t++){
                 Task__c task = new Task__c(
                     Name = 'TaskTest' + t,
                     Quantity_Hours__c = 10,
                     Resource_Project__c = resPro.Id,
                     State__c = 'In Progress',
-                    Worked_Hours__c = 5
+                    Worked_Hours__c = 5,
+                    Description__c = 'some description',
+                    End_Date__c = Date.today(),
+                    Task_summary__c = 'a summary'
                 );
                 tasks.add(task);
             }
+            User squadLead = squadLeads.get(projectsById.get(resPro.Project__c).Squad_Lead__c);
+            System.runAs(squadLead){
+                insert tasks;
+            }
+            allTasks.addAll(tasks);
         }
-        insert tasks;
-        return tasks;
+        return allTasks;
     }
 }

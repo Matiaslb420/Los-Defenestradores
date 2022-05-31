@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_in_progress</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Resource_Project__r.Project__r.Status__c) &lt;&gt; &quot;In Progress&quot;</errorConditionFormula>
+    <errorMessage>It is not allowed to assign Tasks if the status of the project is different from &quot;In Progress&quot;</errorMessage>
+</ValidationRule>

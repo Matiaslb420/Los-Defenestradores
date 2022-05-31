@@ -156,8 +156,9 @@
     <gender>Feminine</gender>
     <label>Opportunity Line Item</label>
     <nameField>
+        <displayFormat>OLI-{0000}</displayFormat>
         <label>OLI Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Opportunities Line Items</pluralLabel>
     <searchLayouts></searchLayouts>

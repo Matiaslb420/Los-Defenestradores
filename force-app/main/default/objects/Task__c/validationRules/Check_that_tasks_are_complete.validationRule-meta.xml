@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_that_tasks_are_complete</fullName>
+    <active>false</active>
+    <errorConditionFormula>TEXT(Resource_Project__r.Project__r.Status__c) &lt;&gt; &quot;Completed&quot;</errorConditionFormula>
+    <errorMessage>To complete the project you have to finish the tasks.</errorMessage>
+</ValidationRule>

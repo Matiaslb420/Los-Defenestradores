@@ -4,16 +4,16 @@ import allRoleResource  from "@salesforce/apex/roleResource.allRoleResource";
 import allProjectRoles from "@salesforce/apex/projectRoles.allProjectRoles";
 
 import { CloseActionScreenEvent } from 'lightning/actions';
- 
+
 export default class FormFill extends LightningElement {
-   @api End_Date__c;
-   @api Name;
-   @api objectApiName;
-   @track mapData=[];
-   @track mapData2=[];
-   emptyRoles=[];
+@api End_Date__c;
+@api Name;
+@api objectApiName;
+@track mapData=[];
+@track mapData2=[];
+emptyRoles=[];
    //@track projectList; 
-   _recordId;
+_recordId;
 
     @api set recordId(value) {
         this._recordId = value;
@@ -23,9 +23,9 @@ export default class FormFill extends LightningElement {
         .then(data =>{
             console.log("map");
             console.log(data);
-             if (data) {
-                 for(var key in data){
-                     this.mapData.push({value:data[key],key:key});
+            if (data) {
+                for(var key in data){
+                    this.mapData.push({value:data[key],key:key});
                 } 
             let mapaDeDatos = JSON.parse(JSON.stringify(this.mapData)); 
             console.log("RESOURCE PROJECT");                              
@@ -34,12 +34,12 @@ export default class FormFill extends LightningElement {
             return this.mapData; 
         })
         .then(data =>{
-             allProjectRoles({ strRecordId :this._recordId})
+            allProjectRoles({ strRecordId :this._recordId})
             .then(dataRole =>{
                 console.log("PLI");
                 console.log(dataRole);
                 if (dataRole) {
-                   
+                
                     for(var index in this.mapData ){
                         
                         for(var rol in dataRole){
@@ -102,36 +102,36 @@ export default class FormFill extends LightningElement {
         
 
     
-   /*@wire(allRoleResource,{Id:'$recordId'})
-   rolesWithResoursesResult({data,error}){
-       if (data) {
-           var conts=data;
-           for(var key in conts){
-               this.mapData.push({value:conts[key],key:key});
-          }
-          console.log('DATAA');
-              
-       } 
-       if (error) {
-           console.error(error)
-           console.log(this.recordId)
-       }
-   };*/
+/*@wire(allRoleResource,{Id:'$recordId'})
+rolesWithResoursesResult({data,error}){
+    if (data) {
+        var conts=data;
+        for(var key in conts){
+            this.mapData.push({value:conts[key],key:key});
+        }
+        console.log('DATAA');
 
-   /*@wire(projectList)
-   projectListResult({data,error}){
-       if(data){
-           this.projectList=data;
-           console.log(data);
-       }
-       if(error){
-           console.log(error);
+    } 
+    if (error) {
+        console.error(error)
+        console.log(this.recordId)
+    }
+};*/
 
-       } 
-   }*/
+/*@wire(projectList)
+projectListResult({data,error}){
+    if(data){
+        this.projectList=data;
+        console.log(data);
+    }
+        if(error){
+        console.log(error);
+
+    } 
+}*/
 //------------------------------------------------
 
-   handleSuccess(e) {
+handleSuccess(e) {
         // Close the modal window and display a success toast
         this.dispatchEvent(new CloseActionScreenEvent());
         this.dispatchEvent(
@@ -141,9 +141,9 @@ export default class FormFill extends LightningElement {
                 variant: 'success'
             })
         );
-   }
+}
 
-   
+
 
 
 }

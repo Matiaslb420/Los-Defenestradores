@@ -17,8 +17,8 @@
 		<members>Days_Off__c</members>
 		<members>Opportunity</members>
 		<members>Opportunity_Line_Item__c</members>
-		<members>Project__c</members>
 		<members>Project_Line_Item__c</members>
+		<members>Project__c</members>
 		<members>Resource_Project__c</members>
 		<members>Task__c</members>
 		<members>User</members>
@@ -57,12 +57,12 @@
 		<name>Layout</name>
 	</types>
 	<types>
-		<members>Admin</members>
-		<name>Profile</name>
+		<members>*</members>
+		<name>LightningComponentBundle</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>Report</name>
+		<members>Admin</members>
+		<name>Profile</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -72,5 +72,5 @@
 		<members>*</members>
 		<name>Role</name>
 	</types>
-	<version>54.0</version>
+	<version>53.0</version>
 </Package>

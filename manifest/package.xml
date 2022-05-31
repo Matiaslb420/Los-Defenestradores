@@ -61,7 +61,11 @@
 		<name>Layout</name>
 	</types>
 	<types>
-		<members>Admin</members>
+		<members>*</members>
+		<name>LightningComponentBundle</name>
+	</types>
+  <types>
+    <members>Admin</members>
 		<name>Profile</name>
 	</types>
 	<types>

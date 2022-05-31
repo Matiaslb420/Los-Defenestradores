@@ -1,5 +1,5 @@
 public with sharing class getTasksInProgress {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=false)
     public static Map<String, List<Task__c>> getResourceTasks(Id ResourceId) {
         /*
         Se consigue un mapa de nombres de proyectos con la Id del resource_Project como key

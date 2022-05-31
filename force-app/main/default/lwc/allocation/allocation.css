@@ -1,0 +1,25 @@
+.slds-truncate{
+    display:flex;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: 25px ;
+}
+.slds-form-element{
+    margin-right: 25px;
+}
+
+th{
+    display: flex;
+}
+
+td{
+    width: 40%;
+}
+
+.rate-p-hour{
+    width:15% ;
+}
+
+.button-margin{
+    margin: 15px;
+}

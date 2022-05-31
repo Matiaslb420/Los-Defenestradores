@@ -17,6 +17,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Sold_Hours__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Amount__c</field>
             </layoutItems>
             <layoutItems>
@@ -46,6 +50,22 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Opportunity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dev_Hours__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Consult_Hours__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Arch_Hours__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PM_Hours__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -87,18 +107,13 @@
         <fields>Required_Hours__c</fields>
         <relatedList>Resource_Project__c.Project__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>Role__c</fields>
-        <fields>Sold_Role_Hours__c</fields>
-        <relatedList>Project_Line_Item__c.Project__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h8a00000ase2y</masterLabel>
+        <masterLabel>00h8a00000dDf3N</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

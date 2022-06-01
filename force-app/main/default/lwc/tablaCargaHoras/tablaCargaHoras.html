@@ -23,7 +23,10 @@
                                 <template if:false={task.Worked_Hours__c}>
                                     <td></td>
                                 </template>
-                                <td>"botones increíbles"</td>
+                                <td>
+                                    <!-- sldsValidatorIgnoreNextLine -->
+                                    <button class="slds-button slds-button_brand" data-id={task.Id} data-projectname={project.key} onclick={initializeTask}>Start Task</button>
+                                </td>
                             </tr>
                         </template>
                     </tbody>

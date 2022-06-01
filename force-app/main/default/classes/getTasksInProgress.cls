@@ -30,4 +30,5 @@ public with sharing class getTasksInProgress {
         }
         return tasksByProjectName;
     }
+
 }

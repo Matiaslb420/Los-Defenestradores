@@ -1,48 +1,28 @@
 import { api, LightningElement, track, wire } from 'lwc';
 import Id from '@salesforce/user/Id';
 import getResourceTasks from '@salesforce/apex/getTasksInProgress.getResourceTasks';
-import initializeTaskApex from '@salesforce/apex/taskTableButtons.initializeTask';
+import { refreshApex } from '@salesforce/apex';
+
 
 export default class BasicDatatable extends LightningElement {
     @track tasksByProjectName = [];
+    @track wiredTaskList = [];
     @api userId = Id;
     @wire(getResourceTasks, { ResourceIdStr: '$userId'})
-    tasks({error, data}){
-        if (data) {
-            console.log('data',data);
-            console.log('id',this.userId);
-            for (let project in data){
-                this.tasksByProjectName.push({key:project,value:data[project]});
+    tasks(result){
+        this.wiredTaskList = result;
+        if (result.data) {
+            for (let project in result.data){
+                this.tasksByProjectName.push({key:project,value:result.data[project]});
             }
-        } else if (error) {
-            console.log('error',error);
+        } else if (result.error) {
+            console.log('error',result.error);
         }
     };
 
-    initializeTask(e){
-        initializeTaskApex({taskIdStr:e.target.dataset.id})
-        .then(task =>{
-            console.log('click');
-            console.log('task', task);
-            let index = 0;
-            let found = false;
-            while(index < this.tasksByProjectName.length && !found){
-                if(e.target.dataset.projectname === this.tasksByProjectName[index].key){
-                    found = true;
-                    let taskIndex = 0;
-                    for(let task in this.tasksByProjectName[index].value){
-                        if(e.target.dataset.id === task.Id){
-                            this.tasksByProjectName[index].value[taskIndex].State__c = 'In Progress';
-                            break;
-                            taskIndex++;
-                        }
-                    }
-                }
-                index++;
-            }
-            
-        })
-        .catch(console.error)
-        
+    handleRefresh(){
+        console.log('ENTRO', this.wiredTaskList)
+        this.tasksByProjectName = [];
+        refreshApex(this.wiredTaskList);
     }
 }

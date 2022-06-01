@@ -23,10 +23,11 @@
                                 <template if:false={task.Worked_Hours__c}>
                                     <td></td>
                                 </template>
+                                
                                 <td>
-                                    <!-- sldsValidatorIgnoreNextLine -->
-                                    <button class="slds-button slds-button_brand" data-id={task.Id} data-projectname={project.key} onclick={initializeTask}>Start Task</button>
+                                    <c-actions key={task.Id} task={task} onrefresh={handleRefresh}></c-actions>
                                 </td>
+                               
                             </tr>
                         </template>
                     </tbody>

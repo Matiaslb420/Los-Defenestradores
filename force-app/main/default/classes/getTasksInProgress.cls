@@ -1,11 +1,12 @@
 public with sharing class getTasksInProgress {
-    @AuraEnabled(cacheable=false)
-    public static Map<String, List<Task__c>> getResourceTasks(Id ResourceId) {
+    @AuraEnabled(cacheable=true)
+    public static Map<String, List<Task__c>> getResourceTasks(String ResourceIdStr) {
+        Id resourceId = Id.valueOf(ResourceIdStr);
         /*
         Se consigue un mapa de nombres de proyectos con la Id del resource_Project como key
         y una lista de todas las tareas del recurso
         */
-        Map<Id, Resource_Project__c> ProjectNamesByResourceProjectId = new Map<Id, Resource_Project__c>([SELECT Id, Project__r.Name FROM Resource_Project__c WHERE  Resource__c =: ResourceId]);
+        Map<Id, Resource_Project__c> ProjectNamesByResourceProjectId = new Map<Id, Resource_Project__c>([SELECT Id, Project__r.Name FROM Resource_Project__c WHERE  Resource__c =: ResourceId AND Project__r.status__c = 'In Progress']);
         List<Task__c> resourceTasks = [
             SELECT 
                 Name, 
@@ -14,7 +15,7 @@ public with sharing class getTasksInProgress {
                 Worked_Hours__c,
                 Resource_Project__c
             FROM Task__c
-            WHERE Resource_Project__c in: ProjectNamesByResourceProjectId.keySet()
+            WHERE Resource_Project__c in: ProjectNamesByResourceProjectId.keySet() AND State__c != 'Completed'
         ];
         //se agrupan todas las tareas por proyecto en un mapa y se retorna ese mapa
         Map<String, List<Task__c>> tasksByProjectName = new Map<String, List<Task__c>>();

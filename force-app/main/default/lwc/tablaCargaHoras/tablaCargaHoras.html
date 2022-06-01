@@ -1,0 +1,33 @@
+<template>
+    <template for:each={tasksByProjectName} for:item="project">
+        <lightning-card title={project.key} key={project.key}>
+                <table border="1" class="slds-card__body slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                    <thead class="slds-card__header">
+                        <tr >
+                            <th scope="col">Task</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Estimated Hours</th>
+                            <th scope="col">Worked Hours</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={project.value} for:item="task">
+                            <tr key={task.Id} >
+                                <td scope="row">{task.Name}</td>
+                                <td>{task.State__c}</td>
+                                <td>{task.Quantity_Hours__c}</td>
+                                <template if:true={task.Worked_Hours__c}>
+                                    <td>{task.Worked_Hours__c}</td>
+                                </template>
+                                <template if:false={task.Worked_Hours__c}>
+                                    <td></td>
+                                </template>
+                                <td>"botones increíbles"</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+        </lightning-card>
+    </template>
+</template>

@@ -1,9 +1,9 @@
 <template>
     <template for:each={tasksByProjectName} for:item="project">
         <lightning-card title={project.key} key={project.key}>
-                <table border="1" class="slds-card__body slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
                     <thead class="slds-card__header">
-                        <tr >
+                        <tr class="slds-line-height_reset">
                             <th scope="col">Task</th>
                             <th scope="col">Status</th>
                             <th scope="col">Estimated Hours</th>

@@ -6,7 +6,7 @@ import { refreshApex } from '@salesforce/apex';
 
 export default class BasicDatatable extends LightningElement {
     @track tasksByProjectName = [];
-    @track wiredTaskList = [];
+    @track wiredTaskList = [];//para el apex refresh
     @api userId = Id;
     @wire(getResourceTasks, { ResourceIdStr: '$userId'})
     tasks(result){
@@ -21,7 +21,6 @@ export default class BasicDatatable extends LightningElement {
     };
 
     handleRefresh(){
-        console.log('ENTRO', this.wiredTaskList)
         this.tasksByProjectName = [];
         refreshApex(this.wiredTaskList);
     }

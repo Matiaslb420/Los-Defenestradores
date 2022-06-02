@@ -23,11 +23,9 @@
                                 <template if:false={task.Worked_Hours__c}>
                                     <td></td>
                                 </template>
-                                
                                 <td>
                                     <c-actions key={task.Id} task={task} onrefresh={handleRefresh}></c-actions>
                                 </td>
-                               
                             </tr>
                         </template>
                     </tbody>

@@ -18,7 +18,12 @@ public with sharing class taskTableButtons {
         Id taskId = Id.valueOf(taskIdStr);
         try {
             Task__c task = [SELECT Id, Worked_Hours__c FROM Task__c WHERE Id =: taskId];
-            task.Worked_Hours__c += hours;
+            if(task.Worked_Hours__c != null){
+                task.Worked_Hours__c += hours;
+            }
+            else{
+                task.Worked_Hours__c = hours;
+            }
             update task;
             return task;
         } catch (Exception e) {
@@ -26,11 +31,3 @@ public with sharing class taskTableButtons {
         }
     }
 }
-
-/*
-try {
-            
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
-*/

@@ -4,6 +4,15 @@
     margin-top: auto;
     margin-right: 25px ;
 }
+.usd {
+        display:flex;
+        margin-bottom: auto;
+        margin-top: auto;
+        margin-right: 25px;
+        position: absolute;
+        left: 1.5rem;
+        top: 0.9rem;
+}
 .slds-form-element{
     margin-right: 25px;
 }

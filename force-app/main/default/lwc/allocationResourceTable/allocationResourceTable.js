@@ -1,149 +1,109 @@
-import { LightningElement,api,track, wire} from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import allRoleResource  from "@salesforce/apex/roleResource.allRoleResource";
-import allProjectRoles from "@salesforce/apex/projectRoles.allProjectRoles";
+import { LightningElement, api, track, wire } from 'lwc'
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import allRoleResource from '@salesforce/apex/roleResource.allRoleResource'
+import allProjectRoles from '@salesforce/apex/projectRoles.allProjectRoles'
 
-import { CloseActionScreenEvent } from 'lightning/actions';
+import { CloseActionScreenEvent } from 'lightning/actions'
 
 export default class FormFill extends LightningElement {
-@api End_Date__c;
-@api Name;
-@api objectApiName;
-@track mapData=[];
-@track mapData2=[];
-emptyRoles=[];
-   //@track projectList; 
-_recordId;
 
-    @api set recordId(value) {
-        this._recordId = value;
-        console.log('setter ', this._recordId)
-        //allProjectRoles({ strRecordId :this._recordId})
-        allRoleResource({ strRecordId :this._recordId})
-        .then(data =>{
-            console.log("map");
-            console.log(data);
-            if (data) {
-                for(var key in data){
-                    this.mapData.push({value:data[key],key:key});
-                } 
-            let mapaDeDatos = JSON.parse(JSON.stringify(this.mapData)); 
-            console.log("RESOURCE PROJECT");                              
-            console.log(mapaDeDatos); 
-            }
-            return this.mapData; 
-        })
-        .then(data =>{
-            allProjectRoles({ strRecordId :this._recordId})
-            .then(dataRole =>{
-                console.log("PLI");
-                console.log(dataRole);
-                if (dataRole) {
-                
-                    for(var index in this.mapData ){
-                        
-                        for(var rol in dataRole){
-                            
-                            if(this.mapData[index].key == dataRole[rol].Role__c){
-                                
-                                this.mapData2.push(dataRole[rol]);
-                                this.mapData2.push(this.mapData[index]);    
-                            }
-                            // else{
-                            //     //this.mapData2.push("No requerido");
-                            //     this.mapData2.push(this.mapData[index]);
-                            // }
-                            
-                        }
-                    }
+  @api End_Date__c
+  @api Name
+  @api objectApiName
+  @track mapData = []
+  @track mapData2 = []
+  emptyRoles = []
+  _recordId
+  recursoId
 
-                }    
-                // let mapaDeDatos2 = JSON.parse(JSON.stringify(this.mapData2));
-                // console.log("mapData2");                              
-                // console.log(mapaDeDatos2);    
-            })
-        
-        
-        })    
-        .catch(error => {console.log('error: ',error)})
-
-    }
-
-
-    get recordId() {
-        return this._recordId;
-    }
-
-
-
-
-        // .then(data =>{
-        //     allProjectRoles({ strRecordId :this._recordId})
-        //     .then(dataRole =>{
-        //         for(var rol in dataRole){
-        //             var hasResources=false;                   
-        //             for(var res in data){
-        //                 if(rol.Role__c = res.userrole.name){
-        //                     res.roleHours = rol.Sold_Role_Hours__c;
-        //                     hasResources = true;
-        //                 }                       
-        //             }
-        //             if(!hasResources){
-        //                 this.emptyRoles.push(rol);
-        //             }
-                    
-        //         }
-                
-        //         console.log(this.emptyRoles);
-        //         console.log("--->" + rol);
-        //     })
-        // })
-
-        
-
-    
-/*@wire(allRoleResource,{Id:'$recordId'})
-rolesWithResoursesResult({data,error}){
-    if (data) {
-        var conts=data;
-        for(var key in conts){
-            this.mapData.push({value:conts[key],key:key});
+  @api set recordId(value) {
+    this._recordId = value
+    allRoleResource({ strRecordId: this._recordId })
+      .then(data => {
+        if (data) {
+          for (var key in data) {
+            this.mapData.push({ value: data[key], key: key })
+          }
         }
-        console.log('DATAA');
+        return this.mapData
+      })
+      .then(data => {
+        allProjectRoles({ strRecordId: this._recordId }).then(dataRole => {
+          if (dataRole) {
+            for (var rol in dataRole) {
 
-    } 
-    if (error) {
-        console.error(error)
-        console.log(this.recordId)
+              if (this.mapData[rol].value.length !== 0) {
+                this.mapData2.push({
+                  Recursos: this.mapData[rol].value,
+                  Horas: dataRole[rol].Sold_Role_Hours__c + ' hs',
+                  Rol: dataRole[rol].Role__c
+                })
+            } else {
+                this.mapData2.push({
+                Recursos: '',
+                Horas:
+                    dataRole[rol].Sold_Role_Hours__c +
+                    ' hs' +
+                    '      -      (No hay recursos disponibles)  :(',
+                Rol: dataRole[rol].Role__c
+                })
+            }
+            }
+        }
+        })
+      })
+      .catch(error => {
+        console.log('error: ', error)
+      })
+  }
+
+  get recordId() {
+    return this._recordId
+  }
+
+  checkIds = [];
+
+handleCheckBoxChange(event) {
+
+    if (event.target.checked) {
+      this.checkIds.push(event.target.value)
+      this.template.querySelectorAll('lightning-input[data-id="' + event.target.value + '"]').forEach((field) => {field.disabled=false})
+      
+    } else {
+      this.checkIds = this.checkIds.filter((value) => { return value !== event.target.value })
+      this.template.querySelectorAll('lightning-input[data-id="' + event.target.value + '"]').forEach((field) => {field.disabled=true})
     }
-};*/
+    console.log(this.checkIds);
+  }
 
-/*@wire(projectList)
-projectListResult({data,error}){
-    if(data){
-        this.projectList=data;
-        console.log(data);
+
+  nuevoRegistro=[];
+  obj={};
+  handleClick(e) {
+
+    console.log("click");
+    console.log("this.nuevoRegistro",this.nuevoRegistro)
+
+    for (var i in this.checkIds) {
+      this.nuevoRegistro.push({});
+      this.nuevoRegistro[i].usuarioId = this.checkIds[i];
+      this.template.querySelectorAll('lightning-input[data-id="' + this.checkIds[i] + '"]').forEach((field) => {
+        this.nuevoRegistro[i][field.label] = field.value;
+       })
+       this.template.querySelectorAll('div[data-id="' + this.checkIds[i] + '"]').forEach((field) => {
+        this.nuevoRegistro[i]["Rate"] = Number(field.innerText);
+       })
     }
-        if(error){
-        console.log(error);
 
-    } 
-}*/
-//------------------------------------------------
+    console.log("this.nuevoRegistro",this.nuevoRegistro);
 
-handleSuccess(e) {
-        // Close the modal window and display a success toast
-        this.dispatchEvent(new CloseActionScreenEvent());
-        this.dispatchEvent(
-            new ShowToastEvent({
-                title: 'Success',
-                message: 'Recursos Asignados!',
-                variant: 'success'
-            })
-        );
-}
-
-
-
-
+    this.dispatchEvent(new CloseActionScreenEvent())
+    this.dispatchEvent(
+      new ShowToastEvent({
+        title: 'Success',
+        message: 'Recursos Asignados!',
+        variant: 'success'
+      })
+    )
+  }
 }

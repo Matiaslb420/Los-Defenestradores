@@ -264,6 +264,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Sold_Hours__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Project_Manager__c</field>
             <table>Opportunity.Projects__r</table>
         </columns>
@@ -285,6 +290,26 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Estimated_Cost__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Dev_Hours__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Consult_Hours__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Arch_Hours__c</field>
+            <table>Opportunity.Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PM_Hours__c</field>
             <table>Opportunity.Projects__r</table>
         </columns>
         <masterLabel>Projects</masterLabel>
@@ -343,11 +368,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Role__c</field>
-            <table>Opportunity.Projects__r.Resources_Projects__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Project_Line_Item__c</field>
             <table>Opportunity.Projects__r.Resources_Projects__r</table>
         </columns>
         <masterLabel>Resources Projects</masterLabel>

@@ -1,0 +1,54 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-quick-action-panel header="Alocación de Recursos">
+        <lightning-record-edit-form record-id={recordId}
+                                    object-api-name={objectApiName}
+                                    onsuccess={handleSuccess}>
+<!-- ________________________________________________________________________________ -->
+<template for:each={mapData} for:item="map"> 
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="" key={map.key}>  
+      <thead key={map.key}>
+          <tr class="slds-line-height_reset">
+              <th class="" scope="col">
+                  <div class="slds-truncate" title="key={map.key}">{map.key}</div>
+              </th>                   
+          </tr>
+      </thead>
+      <template for:each={map.value} for:item="val">        
+          <tbody key={val.id}>
+              <tr class="slds-hint-parent">
+                  <td data-label="FullName" scope="row" >
+                      <div class="slds-truncate" title="FullName">
+                          <lightning-input type="checkbox" id={val.Id} >                              
+                          </lightning-input>
+                              {val.FirstName} {val.LastName}
+                      </div>
+                  </td>
+                  <td class="rate-p-hour">
+                      <div class="slds-truncate" title="RatePHour" >
+                          {val.Rate_P_Hour__c}usd p/h
+                      </div>
+                  </td>
+                  <td>
+                      <div class="slds-truncate slds-form-element_horizontal" title="date">
+                          <lightning-input type="date" name="input1" label="Desde" min="2022-05-01" max="2022-06-06" ></lightning-input>
+                          <lightning-input type="date" name="input1" label="Hasta" ></lightning-input>
+                      </div>
+                      
+                  </td>               
+              </tr>
+          </tbody>
+
+
+      </template>
+      
+  </table>
+
+  </template>
+
+
+<!-- ________________________________________________________________________________ -->           
+            <lightning-button variant="brand" class="slds-float_right button-margin" label="Asignar" type="submit"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-quick-action-panel>
+</template>

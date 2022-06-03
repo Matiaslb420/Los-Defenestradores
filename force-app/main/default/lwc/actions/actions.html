@@ -1,0 +1,24 @@
+<!-- sldsValidatorIgnore -->
+<template >
+    <template if:false={isInitialized}>
+        <button
+            class="slds-button slds-button_brand" 
+            onclick={changeTaskState}>
+            Start Task
+        </button>
+    </template>
+    <template if:true={isInitialized}>
+        <input type="number" onchange={setNumber}></input>
+        <button
+            class="slds-button slds-button_brand" 
+            onclick={registerHours}
+            >
+            Register Hours
+        </button>
+        <button 
+            class="slds-button slds-button_brand" 
+            onclick={changeTaskState}>
+            Complete
+        </button>
+    </template>
+</template>

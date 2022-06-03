@@ -11,6 +11,7 @@ export default class BasicDatatable extends LightningElement {
     @api userId = Id;
     @wire(getResourceTasks, { ResourceIdStr: '$userId'})
     tasks(result){
+        console.log(JSON.stringify(result));
         this.wiredTaskList = result;
         if (result.data) {
             console.log(JSON.stringify(result.data));

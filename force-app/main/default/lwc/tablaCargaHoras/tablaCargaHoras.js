@@ -20,7 +20,7 @@ export default class BasicDatatable extends LightningElement {
         } else if (result.error) {
             console.log('error',result.error);
         }
-    };
+    }
 
     handleRefresh(){
         this.tasksByProjectName = [];

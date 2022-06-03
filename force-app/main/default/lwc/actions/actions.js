@@ -13,11 +13,13 @@ export default class Actions extends LightningElement {
         this.isInitialized = this.task.State__c === STATE_IN_PROGRESS;
     }
   
-    changeTaskState(e){
+    changeTaskState(){
         let newStateUwU = this.isInitialized ? STATE_COMPLETED:STATE_IN_PROGRESS;
         changeTaskStateApex({taskIdStr:this.task.Id, newState:newStateUwU})
         .then(task =>{
-            this.dispatchEvent(new CustomEvent('refresh'));
+            if(task){
+                this.dispatchEvent(new CustomEvent('refresh'));
+            }
             
         })
         .catch(console.error)
@@ -28,15 +30,16 @@ export default class Actions extends LightningElement {
         this.number = e.target.value;
     }
 
-    registerHours(){ //si haces doble click aumenta el doble de horas D:
-        this.number = parseInt(this.number);
+    registerHours(e){ //si haces doble click aumenta el doble de horas D:
+        this.number = parseInt(this.number, 10);
         if(this.number){
+            e.target.disabled = true;
             registerHoursApex({taskIdStr:this.task.Id, hours:this.number})
             .then(task => {
-                this.dispatchEvent(new CustomEvent('refresh'));
+                if(task){
+                    this.dispatchEvent(new CustomEvent('refresh'));
+                }
             })
         }
     }
-
-    
 }

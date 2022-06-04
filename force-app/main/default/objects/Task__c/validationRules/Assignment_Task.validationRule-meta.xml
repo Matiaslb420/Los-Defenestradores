@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Assignment_Task</fullName>
     <active>true</active>
-    <errorConditionFormula>$User.Id   &lt;&gt;   Resource_Project__r.Project__r.Squad_Lead__r.Id</errorConditionFormula>
-    <errorMessage>You are not the Squad Lead or the resource does not belong to the project.</errorMessage>
+    <errorConditionFormula>AND(
+  $User.Id  &lt;&gt;  Resource_Project__r.Project__r.Squad_Lead__c,
+  NOT(ISCHANGED(State__c))
+)</errorConditionFormula>
+    <errorMessage
+  >You are not the Squad Lead or the resource does not belong to the project.</errorMessage>
 </ValidationRule>

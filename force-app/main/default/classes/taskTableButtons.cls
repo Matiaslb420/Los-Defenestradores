@@ -3,6 +3,8 @@ public with sharing class taskTableButtons {
   }
   public class InvalidStateException extends CustomException {
   }
+  public class HoursEqualNullException extends CustomException {
+  }
 
   static final String UNINITIALIZED = 'Uninitialized';
   static final String IN_PROGRESS = 'In Progress';
@@ -32,6 +34,11 @@ public with sharing class taskTableButtons {
   public static Task__c registerHours(String taskIdStr, Integer hours) {
     Id taskId = Id.valueOf(taskIdStr);
     try {
+      if (hours == null) {
+        throw new HoursEqualNullException(
+          'la cantidad de horas no puede ser null'
+        );
+      }
       Task__c task = [
         SELECT Id, Worked_Hours__c
         FROM Task__c

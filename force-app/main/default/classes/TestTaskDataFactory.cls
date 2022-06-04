@@ -113,7 +113,6 @@ public with sharing class TestTaskDataFactory {
           Quantity_Hours__c = 10,
           Resource_Project__c = resPro.Id,
           State__c = 'Uninitialized',
-          Worked_Hours__c = 5,
           Description__c = 'some description',
           End_Date__c = Date.today(),
           Task_summary__c = 'a summary'

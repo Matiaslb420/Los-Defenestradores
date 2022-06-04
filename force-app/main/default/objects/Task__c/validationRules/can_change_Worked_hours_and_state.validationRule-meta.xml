@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>can_change_Worked_hours_and_state</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    $User.Id  &lt;&gt;  Resource_Project__r.Project__r.Squad_Lead__c,
+    $User.Id =  Resource_Project__r.Resource__c,
+    AND(
+      NOT(ISCHANGED( State__c )) ,
+      NOT(ISCHANGED( Worked_Hours__c ))
+    )
+)</errorConditionFormula>
+    <errorMessage
+  >You can only change your worked hours or the task state</errorMessage>
+</ValidationRule>

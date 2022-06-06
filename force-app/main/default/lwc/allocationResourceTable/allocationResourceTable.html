@@ -1,56 +1,87 @@
 <template>
-    <!-- sldsValidatorIgnoreNextLine -->
-    <lightning-quick-action-panel header="Asignación de Recursos">
-        <lightning-record-edit-form record-id={recordId} object-api-name="Resource_Project__c"   data-id="pliForm">
-            <!-- ________________________________________________________________________________ -->
-            <template for:each={mapData2} for:item="map">
-                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label=""
-                    key={map.key}>
-                    <thead key={map.key}>
-                        <tr class="slds-line-height_reset">
-                            <th class="" scope="col">
-                                <div class="slds-truncate" title="map.Rol">{map.Rol} {map.Horas} </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <template for:each={map.Recursos} for:item="val">
-                        <tbody key={val.id}>
-                            <tr class="slds-hint-parent">
-                                <td data-label="FullName" scope="row">
-                                    <div class="slds-truncate" title="FullName">
-                                        <lightning-input type="checkbox" data-id="checkbox" value={val.Id} onchange={handleCheckBoxChange}>
-                                        </lightning-input>
-                                        {val.FirstName} {val.LastName}
-                                    </div>
-                                </td>
-                                <td class="rate-p-hour">
-                                    <div class="slds-truncate" title="RatePHour" data-id={val.Id}>
-                                        {val.Rate_P_Hour__c} 
-                                    </div>
-                                    <div class="usd">USD P/ Hour</div>
-                                </td>
-                                <td>
-                                    <div class="slds-truncate slds-form-element_horizontal" title="date">
-                                        <lightning-input type="date" name="input1" label="Desde" disabled="true" min="" max=""  data-id={val.Id}>
-                                        </lightning-input>
-                                        <lightning-input type="date" name="input1" label="Hasta" disabled="true" data-id={val.Id}></lightning-input>
-                                    </div>
+  <!-- sldsValidatorIgnoreNextLine -->
+  <lightning-quick-action-panel header="Asignación de Recursos">
+    <lightning-record-edit-form
+      record-id={recordId}
+      object-api-name="Resource_Project__c"
+      data-id="pliForm"
+    >
+      <!-- ________________________________________________________________________________ -->
+      <template for:each={mapData2} for:item="map">
+        <table
+          class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+          aria-label=""
+          key={map.key}
+        >
+          <thead>
+            <tr class="slds-line-height_reset">
+              <th class="" scope="col">
+                <div class="slds-truncate" title="map.Rol">
+                  {map.Rol} {map.Horas}
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <template for:each={map.Recursos} for:item="val">
+            <tbody key={val.id}>
+              <tr class="slds-hint-parent">
+                <td data-label="FullName" scope="row">
+                  <div class="slds-truncate" title="FullName">
+                    <lightning-input
+                      type="checkbox"
+                      data-id="checkbox"
+                      value={val.Id}
+                      onchange={handleCheckBoxChange}
+                    >
+                    </lightning-input>
+                    {val.FirstName} {val.LastName}
+                  </div>
+                </td>
+                <td class="rate-p-hour">
+                  <div class="slds-truncate" title="RatePHour" data-id={val.Id}>
+                    {val.Rate_P_Hour__c}
+                  </div>
+                  <div class="usd">USD P/ Hour</div>
+                </td>
+                <td>
+                  <div
+                    class="slds-truncate slds-form-element_horizontal"
+                    title="date"
+                  >
+                    <lightning-input
+                      type="date"
+                      name="input1"
+                      label="Desde"
+                      disabled="true"
+                      min=""
+                      max=""
+                      data-id={val.Id}
+                    >
+                    </lightning-input>
+                    <lightning-input
+                      type="date"
+                      name="input1"
+                      label="Hasta"
+                      disabled="true"
+                      data-id={val.Id}
+                    ></lightning-input>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </table>
+      </template>
 
-                                </td>
-                            </tr>
-                        </tbody>
-
-
-                    </template>
-
-                </table>
-
-            </template>
-
-
-            <!-- ________________________________________________________________________________ -->
-            <lightning-button variant="brand" class="slds-float_right button-margin" label="Asignar" onclick={handleClick} type="submit">
-            </lightning-button>
-        </lightning-record-edit-form>
-    </lightning-quick-action-panel>
+      <!-- ________________________________________________________________________________ -->
+      <lightning-button
+        variant="brand"
+        class="slds-float_right button-margin"
+        label="Asignar"
+        onclick={handleClick}
+        type="submit"
+      >
+      </lightning-button>
+    </lightning-record-edit-form>
+  </lightning-quick-action-panel>
 </template>

@@ -75,6 +75,23 @@ public with sharing class TestTaskDataFactory {
     insert ResPros;
     return ResPros;
   }
+  public static Resource_Project__c createSingleResourceProject(
+    Id projectId,
+    Id resourceId,
+    Date startDate,
+    Date endDate
+  ) {
+    Resource_Project__c newResPro = new Resource_Project__c(
+      Project__c = projectId,
+      Resource__c = resourceId,
+      Worked_Hours__c = 50,
+      Required_Hours__c = 200,
+      Start_Date__c = startDate,
+      End_Date__c = endDate
+    );
+    insert newResPro;
+    return newResPro;
+  }
   public static List<Task__c> createTasks(
     List<Resource_Project__c> resPros,
     Integer numOfTasks

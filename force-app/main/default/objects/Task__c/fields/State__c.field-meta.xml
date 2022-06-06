@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>State__c</fullName>
     <externalId>false</externalId>
@@ -10,19 +10,19 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>No Iniciada</fullName>
+                <fullName>Uninitiated</fullName>
                 <default>false</default>
-                <label>No Iniciada</label>
+                <label>Uninitiated</label>
             </value>
             <value>
-                <fullName>En Progreso</fullName>
+                <fullName>Completed</fullName>
                 <default>false</default>
-                <label>En Progreso</label>
+                <label>Completed</label>
             </value>
             <value>
-                <fullName>Completada</fullName>
+                <fullName>In Progress</fullName>
                 <default>false</default>
-                <label>Completada</label>
+                <label>In Progress</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -212,6 +212,18 @@
             <table
       >Project__c.Projects_Line_Items__r.Resources_Projects__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table
+      >Project__c.Projects_Line_Items__r.Resources_Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
+            <table
+      >Project__c.Projects_Line_Items__r.Resources_Projects__r</table>
+        </columns>
         <masterLabel>Resources Projects</masterLabel>
     </sections>
 </ReportType>

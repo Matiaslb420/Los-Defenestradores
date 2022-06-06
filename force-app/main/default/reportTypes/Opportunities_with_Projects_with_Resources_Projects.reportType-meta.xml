@@ -371,6 +371,16 @@
             <field>Role__c</field>
             <table>Opportunity.Projects__r.Resources_Projects__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
+            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+        </columns>
         <masterLabel>Resources Projects</masterLabel>
     </sections>
 </ReportType>

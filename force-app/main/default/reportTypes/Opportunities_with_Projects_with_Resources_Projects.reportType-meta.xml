@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Opportunity</baseObject>
     <category>opportunities</category>
     <deployed>true</deployed>
-    <description>Opportunities with Projects with Resources Projects</description>
+    <description
+  >Opportunities with Projects with Resources Projects</description>
     <join>
         <join>
             <outerJoin>false</outerJoin>
@@ -368,6 +369,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Role__c</field>
+            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Opportunity.Projects__r.Resources_Projects__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
             <table>Opportunity.Projects__r.Resources_Projects__r</table>
         </columns>
         <masterLabel>Resources Projects</masterLabel>

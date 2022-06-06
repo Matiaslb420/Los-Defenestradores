@@ -19,6 +19,24 @@ public with sharing class TestTaskDataFactory {
     insert projects;
     return projects;
   }
+  public static List<Project_Line_Item__c> createProjectLineItems(
+    List<Project__c> projects,
+    List<String> newRoles
+  ) {
+    List<Project_Line_Item__c> proLineItems = new List<Project_line_Item__c>();
+    for (Project__c pro : projects) {
+      for (String role : newRoles) {
+        Project_Line_Item__c newPLI = new Project_Line_Item__c(
+          Project__c = pro.Id,
+          Role__c = role,
+          Sold_Role_Hours__c = 50
+        );
+        proLineItems.add(newPLI);
+      }
+    }
+    insert proLineItems;
+    return proLineItems;
+  }
   public static User createUser(Integer resourceIndex, Id profileId) {
     User resource = new User(
       lastName = 'testUser' + resourceIndex,

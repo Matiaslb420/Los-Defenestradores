@@ -84,7 +84,8 @@ public with sharing class TestTaskDataFactory {
           Project__c = pro.Id,
           Resource__c = res.Id,
           Worked_Hours__c = 50,
-          Required_Hours__c = 200
+          Required_Hours__c = 200,
+          Role__c = 'Arquitecto'
         );
         resPros.add(newResPro);
       }

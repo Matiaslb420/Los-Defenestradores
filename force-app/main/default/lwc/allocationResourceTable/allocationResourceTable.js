@@ -27,7 +27,7 @@ export default class FormFill extends LightningElement {
         }
         return this.mapData
       })
-      .then(data => {
+      .then(() => {
         allProjectRoles({ strRecordId: this._recordId }).then(dataRole => {
           if (dataRole) {
             for (var rol in dataRole) {
@@ -91,8 +91,9 @@ handleCheckBoxChange(event) {
         this.nuevoRegistro[i][field.label] = field.value;
        })
        this.template.querySelectorAll('div[data-id="' + this.checkIds[i] + '"]').forEach((field) => {
-        this.nuevoRegistro[i]["Rate"] = Number(field.innerText);
+        this.nuevoRegistro[i].Rate = Number(field.innerText);
        })
+       
     }
 
     console.log("this.nuevoRegistro",this.nuevoRegistro);

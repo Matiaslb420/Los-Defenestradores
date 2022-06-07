@@ -37,7 +37,11 @@ public with sharing class TestTaskDataFactory {
     insert proLineItems;
     return proLineItems;
   }
-  public static User createUser(Integer resourceIndex, Id profileId) {
+  public static User createUser(
+    Integer resourceIndex,
+    Id profileId,
+    UserRole role
+  ) {
     User resource = new User(
       lastName = 'testUser' + resourceIndex,
       Username = 'test' + resourceIndex + '@LosDefenestradoresTest.com',
@@ -48,7 +52,8 @@ public with sharing class TestTaskDataFactory {
       TimeZoneSidKey = 'GMT',
       ProfileId = profileId,
       LanguageLocaleKey = 'en_US',
-      EmailEncodingKey = 'UTF-8'
+      EmailEncodingKey = 'UTF-8',
+      UserRole = role
     );
     return resource;
   }
@@ -58,10 +63,16 @@ public with sharing class TestTaskDataFactory {
   ) {
     Integer index = 0;
     Profile profileId = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
+    List<UserRole> roles = [SELECT Id, Name FROM UserRole];
     List<User> resources = new List<User>();
     for (Project__c pro : projects) {
-      for (Integer r = 0; r < numOfResources; r++) {
-        User newUser = TestTaskDataFactory.createUser(index++, profileId.Id);
+      for (Integer r = 1; r <= numOfResources; r++) {
+        Integer roleIndex = math.mod(roles.size(), r); //asegura que no se salga del limite
+        User newUser = TestTaskDataFactory.createUser(
+          index++,
+          profileId.Id,
+          roles.get(roleIndex)
+        );
         resources.add(newUser);
       }
     }
@@ -84,8 +95,7 @@ public with sharing class TestTaskDataFactory {
           Project__c = pro.Id,
           Resource__c = res.Id,
           Worked_Hours__c = 50,
-          Required_Hours__c = 200,
-          Role__c = 'Arquitecto'
+          Required_Hours__c = 200
         );
         resPros.add(newResPro);
       }

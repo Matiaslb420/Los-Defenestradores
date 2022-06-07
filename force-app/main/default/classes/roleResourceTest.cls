@@ -11,21 +11,35 @@ public with sharing class roleResourceTest {
       projects,
       numOfResources
     );
+    /*
     List<Resource_Project__c> resPros = TestTaskDataFactory.createResourceProjects(
       projects,
       resources,
       numOfResources
     );
+    for(Resource_Project__c resPro : resPros){
+      resPro.Start_Date__c = Date.today();
+      resPro.End_Date__c = Date.today().addDays(7);
+    }
+    update resPros;
+    */
     Test.startTest();
     Map<String, List<user>> ResourcesByRole = roleResource.allRoleResource(
       projects.get(0).Id
     );
-    System.assertEquals(
-      10,
-      ResourcesByRole.get('Arquitecto').size(),
-      'encuentra a todos los usuarios'
-    );
-
+    Boolean allUsersPresent = false;
+    for (User user : resources) {
+      for (User u : ResourcesByRole.get(user.UserRole.Name)) {
+        if (u.Id == user.Id) {
+          allUsersPresent = true;
+          break;
+        }
+      }
+      if (allUsersPresent == false) {
+        break;
+      }
+      allUsersPresent = true;
+    }
     Test.stopTest();
   }
 }

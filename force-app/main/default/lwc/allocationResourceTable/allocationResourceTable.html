@@ -1,39 +1,50 @@
 <template>
     <!-- sldsValidatorIgnoreNextLine -->
-    <lightning-quick-action-panel header="Asignación de Recursos">
-        <lightning-record-edit-form record-id={recordId} object-api-name="Resource_Project__c"   data-id="pliForm">
-            <!-- ________________________________________________________________________________ -->
-            <template for:each={mapData2} for:item="map">
+    <lightning-quick-action-panel header="AsignaciÃ³n de Recursos">
+        
+        <!-- ________________________________________________________________________________ -->
+            <template for:each={recursosDisponibles} for:item="map">
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label=""
                     key={map.key}>
-                    <thead key={map.key}>
+                    <thead>
                         <tr class="slds-line-height_reset">
+                            <th class="slds-page-header__row" scope="col">
+                                {map.Rol}: {map.Horas}
+                            </th>
+                            <th class={map.Rol} scope="col">
+                                 /  0 hs. Asignadas
+                            </th>
                             <th class="" scope="col">
-                                <div class="slds-truncate" title="map.Rol">{map.Rol} {map.Horas} </div>
+                                
                             </th>
                         </tr>
                     </thead>
                     <template for:each={map.Recursos} for:item="val">
                         <tbody key={val.id}>
                             <tr class="slds-hint-parent">
-                                <td data-label="FullName" scope="row">
+                                <td class="tdFullName" scope="row">
                                     <div class="slds-truncate" title="FullName">
-                                        <lightning-input type="checkbox" data-id="checkbox" value={val.Id} onchange={handleCheckBoxChange}>
+                                        <lightning-input type="checkbox" data-id="checkbox" value={val.Id}
+                                            onchange={handleCheckBoxChange}>
                                         </lightning-input>
                                         {val.FirstName} {val.LastName}
                                     </div>
                                 </td>
-                                <td class="rate-p-hour">
+                                <td class="rate-p-hour"  scope="row">
                                     <div class="slds-truncate" title="RatePHour" data-id={val.Id}>
-                                        {val.Rate_P_Hour__c} 
+                                        {val.Rate_P_Hour__c}
                                     </div>
                                     <div class="usd">USD P/ Hour</div>
                                 </td>
-                                <td>
+                                <td  class="tdDates" scope="row">
                                     <div class="slds-truncate slds-form-element_horizontal" title="date">
-                                        <lightning-input type="date" name="input1" label="Desde" disabled="true" min="" max=""  data-id={val.Id}>
+                                        <lightning-input type="date" class ="Desde" name="Desde"  label="Desde" disabled="true" min=""
+                                            max="" onchange={handleDateDesdeChange} data-id={val.Id}>
                                         </lightning-input>
-                                        <lightning-input type="date" name="input1" label="Hasta" disabled="true" data-id={val.Id}></lightning-input>
+                                        <lightning-input type="date" class ="Hasta" name="Hasta" label="Hasta" disabled="true"
+                                            min="" max="" onchange={handleDateHastaChange} data-id={val.Id}></lightning-input>
+                                        <div class="slds-truncate hours" data-rol={map.Rol} title="Hours" data-id={val.Id} >
+                                        </div> 
                                     </div>
 
                                 </td>
@@ -49,8 +60,9 @@
 
 
             <!-- ________________________________________________________________________________ -->
-            <lightning-button variant="brand" class="slds-float_right button-margin" label="Asignar" onclick={handleClick} type="submit">
+            <lightning-button variant="brand" class="slds-float_right button-margin" label="Asignar"
+                onclick={handleClick} type="submit">
             </lightning-button>
-        </lightning-record-edit-form>
+       
     </lightning-quick-action-panel>
 </template>

@@ -2,7 +2,10 @@
     display:flex;
     margin-bottom: auto;
     margin-top: auto;
-    margin-right: 25px ;
+    margin-right: 15px ;
+}
+.hours{
+    width: 15%;
 }
 .usd {
         display:flex;
@@ -21,14 +24,22 @@ th{
     display: flex;
 }
 
-td{
+.tdFullName{
     width: 40%;
+}
+.tdDates{
+    width: 45%; 
 }
 
 .rate-p-hour{
     width:15% ;
 }
 
+
 .button-margin{
     margin: 15px;
+}
+
+.slds-line-height_reset{
+    display: flex;
 }

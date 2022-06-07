@@ -119,5 +119,6 @@ public with sharing class validateAllocationDatesTest {
       thorwsError,
       'no permite editar si la primer fecha es invalida'
     );
+    Test.stopTest();
   }
 }

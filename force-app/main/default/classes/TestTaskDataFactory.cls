@@ -19,7 +19,29 @@ public with sharing class TestTaskDataFactory {
     insert projects;
     return projects;
   }
-  public static User createUser(Integer resourceIndex, Id profileId) {
+  public static List<Project_Line_Item__c> createProjectLineItems(
+    List<Project__c> projects,
+    List<String> newRoles
+  ) {
+    List<Project_Line_Item__c> proLineItems = new List<Project_line_Item__c>();
+    for (Project__c pro : projects) {
+      for (String role : newRoles) {
+        Project_Line_Item__c newPLI = new Project_Line_Item__c(
+          Project__c = pro.Id,
+          Role__c = role,
+          Sold_Role_Hours__c = 50
+        );
+        proLineItems.add(newPLI);
+      }
+    }
+    insert proLineItems;
+    return proLineItems;
+  }
+  public static User createUser(
+    Integer resourceIndex,
+    Id profileId,
+    UserRole role
+  ) {
     User resource = new User(
       lastName = 'testUser' + resourceIndex,
       Username = 'test' + resourceIndex + '@LosDefenestradoresTest.com',
@@ -30,7 +52,8 @@ public with sharing class TestTaskDataFactory {
       TimeZoneSidKey = 'GMT',
       ProfileId = profileId,
       LanguageLocaleKey = 'en_US',
-      EmailEncodingKey = 'UTF-8'
+      EmailEncodingKey = 'UTF-8',
+      UserRole = role
     );
     return resource;
   }
@@ -40,10 +63,16 @@ public with sharing class TestTaskDataFactory {
   ) {
     Integer index = 0;
     Profile profileId = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
+    List<UserRole> roles = [SELECT Id, Name FROM UserRole];
     List<User> resources = new List<User>();
     for (Project__c pro : projects) {
-      for (Integer r = 0; r < numOfResources; r++) {
-        User newUser = TestTaskDataFactory.createUser(index++, profileId.Id);
+      for (Integer r = 1; r <= numOfResources; r++) {
+        Integer roleIndex = math.mod(roles.size(), r); //asegura que no se salga del limite
+        User newUser = TestTaskDataFactory.createUser(
+          index++,
+          profileId.Id,
+          roles.get(roleIndex)
+        );
         resources.add(newUser);
       }
     }

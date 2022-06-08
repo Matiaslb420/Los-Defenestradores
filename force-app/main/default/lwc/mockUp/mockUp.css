@@ -1,0 +1,45 @@
+.slds-truncate{
+    display:flex;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: 15px ;
+}
+.hours{
+    width: 15%;
+}
+.usd {
+        display:flex;
+        margin-bottom: auto;
+        margin-top: auto;
+        margin-right: 25px;
+        position: absolute;
+        left: 1.5rem;
+        top: 0.9rem;
+}
+.slds-form-element{
+    margin-right: 25px;
+}
+
+th{
+    display: flex;
+}
+
+.tdFullName{
+    width: 40%;
+}
+.tdDates{
+    width: 45%; 
+}
+
+.rate-p-hour{
+    width:15% ;
+}
+
+
+.button-margin{
+    margin: 15px;
+}
+
+.slds-line-height_reset{
+    display: flex;
+}

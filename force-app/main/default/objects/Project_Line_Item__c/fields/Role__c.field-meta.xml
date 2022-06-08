@@ -26,7 +26,7 @@
                 <label>Desarrollador</label>
             </value>
             <value>
-                <fullName>Project Manager</fullName>
+                <fullName>Project_Manager</fullName>
                 <default>false</default>
                 <label>Project Manager</label>
             </value>

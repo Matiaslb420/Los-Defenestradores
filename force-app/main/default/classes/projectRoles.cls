@@ -1,5 +1,5 @@
 public with sharing class projectRoles {
-  @AuraEnabled(cacheable=false)
+  @AuraEnabled(cacheable=true)
   public static List<Project_Line_Item__c> allProjectRoles(String strRecordId) {
     id recordId = Id.valueOf(strRecordId);
     List<Project_Line_Item__c> allProjectRoles = [

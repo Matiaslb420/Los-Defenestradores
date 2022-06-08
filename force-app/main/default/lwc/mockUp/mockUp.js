@@ -23,7 +23,7 @@ export default class FormFill extends LightningElement {
 
   @wire(allRoleResource, { strRecordId: '$recordId' })
   availableResources (result) {
-    this.refreshAvailableResources = result
+    this.refreshAvailableResources = result;
     if (result.data) {
       for (var key in result.data) {
         this.availableRes.push({ value: result.data[key], key: key })
@@ -164,7 +164,7 @@ export default class FormFill extends LightningElement {
 
       console.log('Cantidad de dias sin fines de semana', result)
       this.nuevoRegistro[i]['HorasAsignadas'] = result * 8
-      this.nuevoRegistro[i]['estimatedAmount'] =
+      this.nuevoRegistro[i].estimatedAmount =
         this.nuevoRegistro[i]['HorasAsignadas'] * this.nuevoRegistro[i]['Rate']
       this.nuevoRegistro[i]['ProjectId'] = this.recordId
     }
@@ -200,15 +200,18 @@ export default class FormFill extends LightningElement {
         return createRecord(recordInput)
       })
     )
-      .then(result => {
+      .then(() => {
+        this.handleRefresh()
+        console.log("deberia refrescar")
         this.dispatchEvent(
           new ShowToastEvent({
             title: 'Success',
             message: 'Recursos Asignados!',
-            variant: 'success'
+            variant: 'success',
           })
+         
         )
-        this.handleRefresh()
+        
       })
       .catch(error => {
         this.dispatchEvent(
@@ -226,7 +229,10 @@ export default class FormFill extends LightningElement {
     this.recursosDisponibles = []
     this.nuevoRegistro = []
     this.checkIds = []
+    console.log("y que onda?")
+    console.log(JSON.stringify(this.refreshAvailableResources)) 
     refreshApex(this.refreshAvailableResources)
+    console.log(JSON.stringify(this.refreshAvailableResources))
   }
 
   daysdiff (startDate, endDate) {

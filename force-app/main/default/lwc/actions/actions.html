@@ -8,7 +8,9 @@
         </button>
     </template>
     <template if:true={isInitialized}>
-        <input type="number" onchange={setNumber}></input>
+        <div class="inputContainer">
+            <input class="slds-input" type="number" onchange={setNumber}></input>
+        </div>
         <button
             class="slds-button slds-button_brand" 
             onclick={registerHours}

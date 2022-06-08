@@ -1,11 +1,11 @@
 <template>
     <!-- sldsValidatorIgnoreNextLine -->
-    <lightning-quick-action-panel header="AsignaciÃ³n de Recursos">
+    <lightning-quick-action-panel header="Asignación de Recursos">
         
         <!-- ________________________________________________________________________________ -->
             <template for:each={recursosDisponibles} for:item="map">
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label=""
-                    key={map.rol}>
+                    key={map.key}>
                     <thead>
                         <tr class="slds-line-height_reset">
                             <th class="slds-page-header__row" scope="col">

@@ -1,3 +1,4 @@
+# Video Presentation available on youtube https://www.youtube.com/watch?v=l8X2jwF7bUM&t=1s
 # Salesforce DX Project: Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
